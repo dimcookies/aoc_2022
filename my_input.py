@@ -16,11 +16,13 @@ def readlines_str_array(file_input):
     with open(os.path.join(sys.path[1], file_input), "r") as f:
         return list(map(lambda x:list(x.strip()),f.readlines()))                
 
-
 def readlines_int(file_input):
     with open(os.path.join(sys.path[1], file_input), "r") as f:
         return list(map(lambda x: int(x.strip()),f.readlines()))                
 
+def readlines_int_safe(file_input, safe_value):
+    with open(os.path.join(sys.path[1], file_input), "r") as f:
+        return list(map(lambda x: int(x.strip()) if x.strip() else safe_value,f.readlines()))    
 
 def readlines_int_array(file_input, sep=" "):
     with open(os.path.join(sys.path[1], file_input), "r") as f:
